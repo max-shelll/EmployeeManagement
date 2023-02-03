@@ -1,0 +1,39 @@
+﻿<Window x:Class="EmployeeManagement.Views.EmployeesView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EmployeeManagement.Views"
+        xmlns:vm="clr-namespace:EmployeeManagement.ViewModels"
+        mc:Ignorable="d"
+        Title="EmployeesView" Height="450" Width="800">
+
+    <Grid>
+        <ListView PreviewMouseDoubleClick="ListView_PreviewMouseDoubleClick" ItemsSource="{Binding Employees,  UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="231" VerticalAlignment="Top" Width="792" Margin="0,50,0,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="auto" DisplayMemberBinding="{Binding LastName}" >
+                        <GridViewColumnHeader Content="Фамилия"></GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn Width="auto" DisplayMemberBinding="{Binding FirstName}">
+                        <GridViewColumnHeader Content="Имя"></GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn Width="auto" DisplayMemberBinding="{Binding Age}">
+                        <GridViewColumnHeader Content="Возраст"></GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn Width="auto" DisplayMemberBinding="{Binding CompanyName}">
+                        <GridViewColumnHeader Content="Компания"></GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn Width="auto" DisplayMemberBinding="{Binding Position}">
+                        <GridViewColumnHeader Content="Должность"></GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn Width="auto" DisplayMemberBinding="{Binding CityName}">
+                        <GridViewColumnHeader Content="Город"></GridViewColumnHeader>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155"/>
+        <TextBlock HorizontalAlignment="Left" Margin="172,15,0,0" TextWrapping="Wrap" Text="{Binding FilterMessage}" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
